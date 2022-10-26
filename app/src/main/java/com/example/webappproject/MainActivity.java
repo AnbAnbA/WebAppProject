@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 public class MainActivity extends AppCompatActivity {
 
     private AdapterM pAdapter;
@@ -27,5 +26,60 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ListView lvMed= findViewById(R.id.lvMed);
+        pAdapter = new AdapterM(MainActivity.this, listMed);
+        lvMed.setAdapter(pAdapter);
+        new GetMed().execute();
+    }
+
+    private class GetMed extends AsyncTask<Void, Void, String>
+    {
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            try {
+                URL url = new URL("https://ngknn.ru:5101/NGKNN/БыковаАА/api/Medicines");
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                StringBuilder result = new StringBuilder();
+                String line = "";
+
+                while ((line = reader.readLine()) != null) {
+                    result.append(line);
+                }
+                return result.toString();
+
+            } catch (Exception exception) {
+                return null;
+            }
+        }
+        @Override
+        protected void onPostExecute(String s)
+        {
+            super.onPostExecute(s);
+            try
+            {
+                JSONArray tempArray = new JSONArray(s);
+                for (int i = 0;i<tempArray.length();i++)
+                {
+
+                    JSONObject productJson = tempArray.getJSONObject(i);
+                    Med tempProduct = new Med(
+                            productJson.getInt("IDMed"),
+                            productJson.getString("NameMed"),
+                            productJson.getString("Manufacturers"),
+                            productJson.getString("Manufacturer_country"),
+                            productJson.getDouble("PriceMed")
+                    );
+                    listMed.add(tempProduct);
+                    pAdapter.notifyDataSetInvalidated();
+                }
+            } catch (Exception ignored) {
+
+            }
+        }
+
     }
 }
