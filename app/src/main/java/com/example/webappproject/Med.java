@@ -82,6 +82,8 @@ public class Med implements Parcelable{
 
     public String getManufacturer_country(){return Manufacturer_country;}
 
+    public double getPriceMed(){return PriceMed;}
+
 
 
 }

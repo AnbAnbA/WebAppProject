@@ -15,7 +15,7 @@ import java.util.List;
 
 public class AdapterM extends BaseAdapter{
 
-    private Context mContext;
+    private final Context mContext;
     List<Med> medList;
 
     public AdapterM(Context mContext, List<Med> listMed) {
@@ -54,6 +54,14 @@ public class AdapterM extends BaseAdapter{
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return null;
+
+        View v=View.inflate(mContext,R.layout.med_layout,null);
+        TextView NameMed= v.findViewById(R.id.NameMed);
+        TextView Price= v.findViewById(R.id.Price);
+        ImageView imageView = v.findViewById(R.id.Image);
+        Med med=medList.get(i);
+        NameMed.setText(med.getNameMed());
+        Price.setText(Double.toString(med.getPriceMed()));
+        return v;
     }
 }
