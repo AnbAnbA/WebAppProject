@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
     private class GetMed extends AsyncTask<Void, Void, String>
     {
-
         @Override
         protected String doInBackground(Void... voids) {
             try {
@@ -64,10 +63,9 @@ public class MainActivity extends AppCompatActivity {
                 JSONArray tempArray = new JSONArray(s);
                 for (int i = 0;i<tempArray.length();i++)
                 {
-
                     JSONObject productJson = tempArray.getJSONObject(i);
                     Med tempProduct = new Med(
-                            productJson.getInt("IDMed"),
+                            productJson.getInt("ID"),
                             productJson.getString("NameMed"),
                             productJson.getString("Manufacturers"),
                             productJson.getString("Manufacturer_country"),
@@ -77,9 +75,7 @@ public class MainActivity extends AppCompatActivity {
                     pAdapter.notifyDataSetInvalidated();
                 }
             } catch (Exception ignored) {
-
             }
         }
-
     }
 }

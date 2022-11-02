@@ -15,10 +15,10 @@ public class Med implements Parcelable{
     public Med(int ID, String nameMed, String manufacturers, String manufacturer_country, double priceMed)
     {
         this.ID = ID;
-        this.NameMed=nameMed;
-        this.Manufacturers=manufacturers;
-        this.Manufacturer_country=manufacturer_country;
-        this.PriceMed=priceMed;
+        NameMed=nameMed;
+        Manufacturers=manufacturers;
+        Manufacturer_country=manufacturer_country;
+        PriceMed=priceMed;
     }
 
 
