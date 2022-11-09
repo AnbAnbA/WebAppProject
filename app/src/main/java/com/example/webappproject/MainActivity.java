@@ -2,8 +2,10 @@ package com.example.webappproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -31,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
         pAdapter = new AdapterM(MainActivity.this, listMed);
         lvMed.setAdapter(pAdapter);
         new GetMed().execute();
+    }
+
+    public void GoAddData(View view) {
+        startActivity(new Intent(this, AddMed.class));
     }
 
     private class GetMed extends AsyncTask<Void, Void, String>
