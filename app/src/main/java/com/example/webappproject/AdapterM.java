@@ -59,6 +59,7 @@ public class AdapterM extends BaseAdapter{
         TextView NameMed= v.findViewById(R.id.NameMed);
         TextView Price= v.findViewById(R.id.Price);
         ImageView imageView = v.findViewById(R.id.Image);
+
         Med med=medList.get(i);
         NameMed.setText(med.getNameMed());
         Price.setText(Double.toString(med.getPriceMed()));

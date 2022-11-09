@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(Void... voids) {
             try {
-                URL url = new URL("https://ngknn.ru:5101/NGKNN/БыковаАА/api/Medicines");
+                URL url = new URL("https://ngknn.ru:5001/NGKNN/БыковаАА/api/Medicines");
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
                 BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
