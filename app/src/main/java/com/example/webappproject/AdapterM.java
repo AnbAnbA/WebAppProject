@@ -73,14 +73,14 @@ public class AdapterM extends BaseAdapter{
             Image.setImageResource(R.drawable.def);
         }
 
-/*        v.setOnClickListener(new View.OnClickListener() {
+       v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, UpdMed.class);
                 intent.putExtra(Med.class.getSimpleName(), med);
                 mContext.startActivity(intent);
             }
-        });*/
+        });
         return v;
     }
 }
