@@ -46,23 +46,32 @@ public class AdapterM extends BaseAdapter{
         }
         else
         {
-            return null;
+            return BitmapFactory.decodeResource(mContext.getResources(), R.drawable.def);
 
         }
     }
-
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
         View v=View.inflate(mContext,R.layout.med_layout,null);
         TextView NameMed= v.findViewById(R.id.NameMed);
+        TextView Manufacturers=v.findViewById(R.id.Manufactures);
+        TextView Manufacturer_country=v.findViewById(R.id.Manufacturer_country);
         TextView Price= v.findViewById(R.id.Price);
-        ImageView imageView = v.findViewById(R.id.Image);
+        ImageView Image = v.findViewById(R.id.Image);
 
         Med med=medList.get(i);
         NameMed.setText(med.getNameMed());
+        Manufacturers.setText(med.getManufacturers());
+        Manufacturer_country.setText(med.getManufacturer_country());
         Price.setText(Double.toString(med.getPriceMed()));
+        if(med.getImage() != null){
+            Image.setImageBitmap(getUserImage(med.getImage()));
+        }
+        else {
+            Image.setImageResource(R.drawable.def);
+        }
         return v;
     }
 }

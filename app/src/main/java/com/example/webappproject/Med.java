@@ -10,15 +10,17 @@ public class Med implements Parcelable{
     private String Manufacturers;
     private String Manufacturer_country;
     private double PriceMed;
+    public String Image;
 
 
-    public Med(int ID, String nameMed, String manufacturers, String manufacturer_country, double priceMed)
+    public Med(int ID, String nameMed, String manufacturers, String manufacturer_country, double priceMed, String image)
     {
         this.ID = ID;
         NameMed=nameMed;
         Manufacturers=manufacturers;
         Manufacturer_country=manufacturer_country;
         PriceMed=priceMed;
+        Image=image;
     }
 
 
@@ -28,6 +30,7 @@ public class Med implements Parcelable{
         Manufacturers=in.readString();
         Manufacturer_country=in.readString();
         PriceMed= in.readDouble();
+        Image=in.readString();
     }
 
     public static final Creator<Med> CREATOR = new Creator<Med>() {
@@ -52,14 +55,12 @@ public class Med implements Parcelable{
     {
         Manufacturers=manufacturers;
     }
-    public void setManufacturer_country(String manufacturer_country)
-    {
-        Manufacturer_country=manufacturer_country;
-    }
+    public void setManufacturer_country(String manufacturer_country) {Manufacturer_country=manufacturer_country;}
     public void setPriceMed(double priceMed)
     {
         PriceMed=priceMed;
     }
+    public void setImage(String image){Image=image;}
 
     @Override
     public int describeContents() {
@@ -83,6 +84,8 @@ public class Med implements Parcelable{
     public String getManufacturer_country(){return Manufacturer_country;}
 
     public double getPriceMed(){return PriceMed;}
+
+    public String getImage(){return Image;}
 
 
 

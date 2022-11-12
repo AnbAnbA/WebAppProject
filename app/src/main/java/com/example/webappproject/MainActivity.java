@@ -75,7 +75,8 @@ public class MainActivity extends AppCompatActivity {
                             productJson.getString("NameMed"),
                             productJson.getString("Manufacturers"),
                             productJson.getString("Manufacturer_country"),
-                            productJson.getDouble("PriceMed")
+                            productJson.getDouble("PriceMed"),
+                            productJson.getString("Image")
                     );
                     listMed.add(tempProduct);
                     pAdapter.notifyDataSetInvalidated();
