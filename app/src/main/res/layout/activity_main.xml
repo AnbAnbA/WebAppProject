@@ -27,7 +27,7 @@
        android:layout_marginBottom="30dp"
        android:background="@color/teal_700"
        android:onClick="GoAddData"
-       android:text=" kljlk"
+       android:text="Добавить"
        android:textColor="@color/white"
        app:layout_constraintBottom_toBottomOf="parent"
 

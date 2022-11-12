@@ -39,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, AddMed.class));
     }
 
+
+
+
     private class GetMed extends AsyncTask<Void, Void, String>
     {
         @Override

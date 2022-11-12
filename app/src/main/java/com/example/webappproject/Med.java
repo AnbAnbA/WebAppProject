@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 public class Med implements Parcelable{
 
-    private int ID;
+    private Integer ID;
     private String NameMed;
     private String Manufacturers;
     private String Manufacturer_country;
@@ -13,7 +13,7 @@ public class Med implements Parcelable{
     public String Image;
 
 
-    public Med(int ID, String nameMed, String manufacturers, String manufacturer_country, double priceMed, String image)
+    public Med(Integer ID, String nameMed, String manufacturers, String manufacturer_country, double priceMed, String image)
     {
         this.ID = ID;
         NameMed=nameMed;
@@ -74,6 +74,7 @@ public class Med implements Parcelable{
         parcel.writeString(Manufacturers);
         parcel.writeString(Manufacturer_country);
         parcel.writeDouble(PriceMed);
+        parcel.writeString(Image);
     }
     public int getID(){return ID;};
 
